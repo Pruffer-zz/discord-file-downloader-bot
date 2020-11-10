@@ -12,10 +12,11 @@ client = discord.Client()
 
 def download(fileUrl, filename, channel):
 	print("Downloading file: " + fileUrl)
+	path = fileDirectory + str(channel)
 	fileDownload = requests.get(fileUrl)
-	if not os.path.exists(fileDirectory + str(channel)):
-		os.makedirs(fileDirectory + str(channel))
-	with open(fileDirectory + str(channel) + '/' + filename, 'wb') as file:
+	if not os.path.exists(path):
+		os.makedirs(path)
+	with open(path + '/' + filename, 'wb') as file:
 		file.write(fileDownload.content)
 
 @client.event
