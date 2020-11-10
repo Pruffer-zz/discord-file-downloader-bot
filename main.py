@@ -19,7 +19,7 @@ def renameFile(path, filename):
 
 def download(fileUrl, filename, channel):
 	print("Downloading file: " + fileUrl)
-	path = fileDirectory + str(channel)
+	path = fileDirectory + channel
 	fileDownload = requests.get(fileUrl)
 	if not os.path.exists(path):
 		os.makedirs(path)
@@ -32,6 +32,6 @@ def download(fileUrl, filename, channel):
 async def on_message(message: str):
 	if message.attachments and message.guild.id == serverId:
 		for file in message.attachments:
-			Thread(target=download, args=(''.join(file.url), file.filename, message.channel)).start()
+			Thread(target=download, args=(''.join(file.url), file.filename, str(message.channel))).start()
 
 client.run(botToken)
