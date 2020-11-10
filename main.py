@@ -29,7 +29,7 @@ def download(fileUrl, filename, channel):
 		file.write(fileDownload.content)
 
 @client.event
-async def on_message(message: str):
+async def on_message(message):
 	if message.attachments and message.guild.id == serverId:
 		for file in message.attachments:
 			Thread(target=download, args=(''.join(file.url), file.filename, str(message.channel))).start()
