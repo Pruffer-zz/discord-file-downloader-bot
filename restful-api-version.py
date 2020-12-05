@@ -32,7 +32,7 @@ def download(fileUrl, filename, channel):
 		"apikey": apiKey
 	}
 	print("Sending request for: " + filename)
-	response = requests.post(siteUrl + "api.php/fileupload", files=files, data=data, headers=headers)
+	response = requests.post(siteUrl + "api.php/file/upload", files=files, data=data, headers=headers)
 	print("Request finished for: " + filename)
 	
 
