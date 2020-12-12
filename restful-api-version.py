@@ -25,7 +25,7 @@ def download(fileUrl, filename, channel):
 		'json':("{"
 			"\"location\":\"" + fileDirectory + "\","
 			"\"filename\":\"" + filename + "\","
-			"\"overwrite\":\"no\""
+			"\"overwrite\":false
 		"}")
 	}
 	headers = {
